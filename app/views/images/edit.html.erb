@@ -1,0 +1,8 @@
+<h1>Image編集</h1>
+<%= form_with model: @image, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

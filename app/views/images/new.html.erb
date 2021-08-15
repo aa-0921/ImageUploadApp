@@ -1,8 +1,16 @@
-<h1>Image作成</h1>
+<!-- <h1>Image作成</h1>
 <%= form_with model: @image, local: true do |form| %>
   <%= form.label :name %>
   <%= form.text_field :name %>
   <p>
     <%= form.submit %>
   </p>
+<% end %> -->
+<h1>Image作成</h1>
+<%= form_with model: @image, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :image %>
+  <%= form.file_field :image %>
+  <p><%= form.submit %></p>
 <% end %>

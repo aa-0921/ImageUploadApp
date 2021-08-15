@@ -32,3 +32,5 @@
 
 # gemの保存先も除外
 vendor/bundle
+
+.env

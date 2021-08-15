@@ -1,5 +1,7 @@
 {
   "name": "ImageUploadApp",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }

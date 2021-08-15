@@ -11,6 +11,15 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    # => "uploads/image/image/4"
+
+    # => "image"
+    # model=> #<Image:0x00007fd5601c28d8
+    #  id: nil,
+    #  name: "2021/08/15 15:56:03 pry",
+    #  image: nil,
+    #  created_at: nil,
+    #  updated_at: nil>
   end
 
   def extension_whitelist
@@ -18,13 +27,18 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
+    # self.file.extension => "png"    original_filename => "四角顔アイコン.png"
     "#{secure_token}.#{file.extension}" if original_filename.present?
   end
 
   protected
 
+  # filenameメソッドで使われている
   def secure_token
-    var = :"@#{mounted_as}_secure_token"
+    # self.class => ImageUploader
+    # self.mounted_as => :image
+    var = :"@#{mounted_as}_secure_token" # => :@image_secure_token
+    #  nil  or   "ed3a76ee-0177-4fea-b75e-12eb6e5bb52d"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
   end
 

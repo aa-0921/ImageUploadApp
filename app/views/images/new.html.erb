@@ -8,9 +8,14 @@
 <% end %> -->
 <h1>Image作成</h1>
 <%= form_with model: @image, local: true do |form| %>
+  <!-- nameのform -->
   <%= form.label :name %>
   <%= form.text_field :name %>
+  
+  <!-- imageのform -->
   <%= form.label :image %>
   <%= form.file_field :image %>
+  
+  <!-- submitボタン -->
   <p><%= form.submit %></p>
 <% end %>

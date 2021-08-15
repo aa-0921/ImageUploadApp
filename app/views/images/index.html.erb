@@ -6,6 +6,7 @@
   <h2>
     <%= image.name %>
   </h2>
+  <%= image_tag image.image&.to_s, class:"image" %>
   <%= link_to "詳細" , image_path(image) %>
   <%= link_to "削除" , image_path(image), method: :delete %>
 <% end %>

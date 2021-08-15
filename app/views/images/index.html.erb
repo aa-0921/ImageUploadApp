@@ -7,6 +7,11 @@
     <%= image.name %>
   </h2>
   <%= image_tag image.image&.to_s, class:"image" %>
+  <!-- 
+    変換後↓↓↓
+    <img class="image" 
+    src="https://s3-rails-image-20210815.s3.ap-northeast-1.amazonaws.com/uploads/image/image/5/b5cfd2f5-9f55-4491-aeb7-2bc0756027f2.png?X-Amz-Expires=600&amp;X-Amz-Date=20210815T073214Z&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA5XAOE4GGHEY3OX7R%2F20210815%2Fap-northeast-1%2Fs3%2Faws4_request&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=8c174584be1d2106aa93118b1716a2bfd26b5513b4314b266b92177406fd5293">
+   -->
   <%= link_to "詳細" , image_path(image) %>
   <%= link_to "削除" , image_path(image), method: :delete %>
 <% end %>
